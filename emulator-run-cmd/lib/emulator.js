@@ -25,7 +25,9 @@ class Emulator {
     }
     start() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield exec_with_result_1.default(`bash -c \\\"${this.sdk.androidHome()}/tools/emulator @${this.name} -no-snapshot-save &\"`);
+            // Note: used  tobe /tools/emulator, but running that now yields the error: PANIC: Missing emulator engine program for 'x86' CPU.
+            //       Using emulator/emulator seems to work
+            yield exec_with_result_1.default(`bash -c \\\"${this.sdk.androidHome()}/emulator/emulator @${this.name} -no-snapshot-save &\"`);
             let booted = yield this.waitForBoot();
             console.log(`booted=${booted}`);
             return;

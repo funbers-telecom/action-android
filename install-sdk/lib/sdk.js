@@ -80,7 +80,7 @@ class BaseAndroidSdk {
             if (!verbose) {
                 args += " > /dev/null";
             }
-            yield exec_with_result_1.default(`bash -c \\\"${this.androidHome()}/tools/bin/sdkmanager emulator tools platform-tools 'system-images;android-${api};${tag};${abi}'${args}"`);
+            yield exec_with_result_1.default(`bash -c \\\"echo -n y | ${this.androidHome()}/tools/bin/sdkmanager emulator tools platform-tools 'system-images;android-${api};${tag};${abi}'${args}"`);
         });
     }
     installPlatform(api, verbose) {

@@ -27,7 +27,7 @@ export class Emulator {
     }
 
     async start(): Promise<any> {
-        // Note: used  tobe /tools/emulator, but running that now yields the error: PANIC: Missing emulator engine program for 'x86' CPU.
+        // Note: used to be /tools/emulator, but running that now yields the error: PANIC: Missing emulator engine program for 'x86' CPU.
         //       Using emulator/emulator seems to work
         await execWithResult(`bash -c \\\"${this.sdk.androidHome()}/emulator/emulator @${this.name} -no-snapshot-save &\"`)
         let booted = await this.waitForBoot();

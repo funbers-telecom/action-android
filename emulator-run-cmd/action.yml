@@ -4,13 +4,13 @@ author: 'Malinskiy'
 inputs:
   api:
     description: 'api version of the emulator'
-    default: '25'
+    default: '28'
   abi:
     description: 'abi of the emulator'
     default: 'x86'
   tag:
     description: 'default or google_apis'
-    default: 'default'
+    default: 'google_apis'
   cmd:
     description: 'cmd to execute while the emulator is running'
     default: ''

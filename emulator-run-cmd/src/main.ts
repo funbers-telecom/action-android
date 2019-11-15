@@ -60,13 +60,18 @@ async function run() {
 
             try {
                 await execWithResult(`${cmd}`)
+
+                console.log("stopping emulator")
+                await emulator.stop()
+                console.log("emulator is stopped")
             } catch (e) {
-                //ignore
+                console.log("stopping emulator")
+                await emulator.stop()
+                console.log("emulator is stopped")
+
+                core.setFailed(e.message)
             }
 
-            console.log("stopping emulator")
-            await emulator.stop()
-            console.log("emulator is stopped")
         } catch (error) {
             console.error(error)
             core.setFailed(error.message);

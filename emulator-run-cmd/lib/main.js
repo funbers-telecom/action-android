@@ -69,13 +69,16 @@ function run() {
                 console.log("emulator started and booted");
                 try {
                     yield exec_with_result_1.default(`${cmd}`);
+                    console.log("stopping emulator");
+                    yield emulator.stop();
+                    console.log("emulator is stopped");
                 }
                 catch (e) {
-                    //ignore
+                    console.log("stopping emulator");
+                    yield emulator.stop();
+                    console.log("emulator is stopped");
+                    core.setFailed(e.message);
                 }
-                console.log("stopping emulator");
-                yield emulator.stop();
-                console.log("emulator is stopped");
             }
             catch (error) {
                 console.error(error);

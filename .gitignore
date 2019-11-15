@@ -93,5 +93,3 @@ typings/
 .dynamodb/
 
 lib
-/emulator-start/node_modules/
-/emulator-stop/node_modules/

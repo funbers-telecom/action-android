@@ -109,7 +109,7 @@ export abstract class BaseAndroidSdk implements AndroidSDK {
 
     async createEmulator(name: string, api: string, tag: string, abi: string): Promise<any> {
         await execWithResult(`bash -c \\\"echo -n no | ${this.androidHome()}/tools/bin/avdmanager create avd -n ${name} --package \\\"system-images;android-${api};${tag};${abi}\\\" --tag ${tag}\"`)
-        await execWithResult(`printf '\nhw.lcd.width=768\nhw.lcd.height=1280' >> ~/.android/avd/${name}.avd/config.ini`)
+        await execWithResult(`printf '\\\nhw.lcd.width=768\nhw.lcd.height=1280' >> ~/.android/avd/${name}.avd/config.ini`)
         return new Emulator(this, name, api, abi, tag, this.portCounter++, this.portCounter++)
     }
 

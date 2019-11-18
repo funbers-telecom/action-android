@@ -48,7 +48,8 @@ class BaseAndroidSdk {
             yield exec_with_result_1.default(`mkdir -p ${ANDROID_HOME}/sdk_home`);
             core.exportVariable('ANDROID_HOME', `${ANDROID_HOME}`);
             core.exportVariable('ANDROID_SDK_ROOT', `${ANDROID_HOME}`);
-            core.exportVariable('ANDROID_SDK_HOME', `${ANDROID_HOME}/sdk_home`);
+            // core.exportVariable('ANDROID_SDK_HOME', `${ANDROID_HOME}/sdk_home`);
+            core.exportVariable('ANDROID_SDK_HOME', `${process.env.HOME}/.android`);
             const PATH = process.env.PATH;
             let extraPaths = `${ANDROID_HOME}/bin:${ANDROID_HOME}/tools:${PATH}/tools/bin:${PATH}/platform-tools/bin`;
             let PATH_WITHOUT_ANDROID = PATH.split(':').filter(entry => {

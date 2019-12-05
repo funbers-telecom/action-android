@@ -96,7 +96,7 @@ class BaseAndroidSdk {
     createEmulator(name, api, tag, abi) {
         return __awaiter(this, void 0, void 0, function* () {
             yield exec_with_result_1.default(`bash -c \\\"echo -n no | ${this.androidHome()}/tools/bin/avdmanager create avd -n ${name} --package \\\"system-images;android-${api};${tag};${abi}\\\" --tag ${tag}\"`);
-            yield exec_with_result_1.default(`bash -c \\\"echo -e '\\nhw.lcd.width=768\\nhw.lcd.height=1280' >> ~/.android/avd/${name}.avd/config.ini\"`);
+            yield exec_with_result_1.default(`bash -c \\\"echo -e '\\nhw.lcd.width=480\\nhw.lcd.height=960' >> ~/.android/avd/${name}.avd/config.ini\"`);
             return new emulator_1.Emulator(this, name, api, abi, tag, this.portCounter++, this.portCounter++);
         });
     }

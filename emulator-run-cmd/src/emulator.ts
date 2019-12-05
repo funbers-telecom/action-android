@@ -30,7 +30,7 @@ export class Emulator {
         // Note: used to be /tools/emulator, but running that now yields the error: PANIC: Missing emulator engine program for 'x86' CPU.
         //       Using emulator/emulator seems to work
         // await execWithResult(`bash -c \\\"${this.sdk.androidHome()}/emulator/emulator @${this.name} -no-snapshot-save &\"`)
-        await execWithResult(`bash -c \\\"${this.sdk.androidHome()}/emulator/emulator-headless @${this.name} -no-snapshot -no-snapshot-save -no-audio -gpu swiftshader_indirect &\"`)
+        await execWithResult(`bash -c \\\"${this.sdk.androidHome()}/emulator/emulator @${this.name} -no-snapshot -no-snapshot-save -no-audio -gpu swiftshader_indirect -no-window &\"`)
         let booted = await this.waitForBoot();
         console.log(`booted=${booted}`)
         return
